@@ -233,7 +233,8 @@ function showRecentlyPushedBranches() {
 // Support indent with tab key in textarea elements
 $(document).on('keydown', event => {
 	// Check event.target instead of using a delegate, because Sprint doesn't support them
-	if (!$(event.target).is('textarea')) {
+	const $target = $(event.target);
+	if (!($target.is('textarea') && $target.hasClass('js-comment-field'))) {
 		return;
 	}
 
